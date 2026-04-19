@@ -1,0 +1,355 @@
+/* ============================================================
+    RESET E BASE
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2, h3, h4, .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================================
+    HEADER E LOGO (AJUSTADO E TRAVADO)
+   ============================================================ */
+header {
+    background: linear-gradient(90deg, #ffb300, #ff8c00);
+    padding: 0 8%; /* Padding vertical removido para usar height fixo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px; /* ALTURA TRAVADA PARA EVITAR PULO ENTRE PÁGINAS */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    background: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 42px !important;
+    height: 42px !important;
+    object-fit: contain !important;
+}
+
+.logo-text h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.logo-text span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    opacity: 0.95;
+    font-weight: 400; /* SEM NEGRITO */
+    text-transform: uppercase; /* TEXTO EM MAIÚSCULO */
+    letter-spacing: 1.2px;
+    display: block;
+    line-height: 1;
+}
+
+.admin-btn {
+    background: white;
+    color: #ff8c00;
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.admin-btn:hover {
+    background: #fff3e0;
+    transform: scale(1.05);
+}
+
+/* ============================================================
+    BANNER E CARROSSEL 
+   ============================================================ */
+.banner {
+    position: relative;
+    height: 480px; 
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.slides-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important; 
+    object-position: center 47%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.slide.active { 
+    opacity: 1; 
+}
+
+.banner-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 850px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.banner-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 58px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.banner-text p {
+    font-size: 24px;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow:hover { background: #ffb300; color: #000; }
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ============================================================
+    SEÇÕES E CONTEÚDO
+   ============================================================ */
+section {
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.titulo::after {
+    content: "";
+    width: 70px;
+    height: 5px;
+    background: #ffb300;
+    display: block;
+    margin: 12px auto;
+    border-radius: 10px;
+}
+
+.quem-box, .missao-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    font-size: 18px;
+    color: #475569;
+    text-align: center;
+}
+
+.quem-box {
+    gap: 30px;
+    text-align: left;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1150px;
+}
+
+.card {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #f1f5f9;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #ffb300;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+    FOOTER
+   ============================================================ */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 60px 10% 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffb300;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Estilo base do link social */
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #94a3b8; /* Cinza azulado padrão */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição suave */
+}
+
+/* Ícone padrão */
+.social-item i {
+    font-size: 22px;
+    color: #ffb300; /* Amarelo/Laranja padrão */
+    transition: 0.3s;
+}
+
+/* O EFEITO QUE VOCÊ QUER: Branco Brilhante e Inclinação */
+.social-item:hover {
+    color: #ffffff !important; /* Força o texto a ficar branco */
+    transform: translateX(8px) rotate(-3deg); /* Desliza e dá a leve inclinada */
+}
+
+.social-item:hover i {
+    color: #ffffff !important; /* Ícone fica branco */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); /* O efeito de BRILHO */
+}
+.copy {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(198, 68, 68, 0.05);
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+
+
+/* ============================================================
+    RESPONSIVIDADE
+   ============================================================ */
+@media (max-width: 768px) {
+    header { height: auto; padding: 15px 5%; }
+    .banner { height: 400px; } 
+    .banner-text h2 { font-size: 38px; }
+    .banner-text p { font-size: 18px; }
+    .quem-box { flex-direction: column; text-align: center; padding: 30px; }
+    section { padding: 60px 5%; }
+}

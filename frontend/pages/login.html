@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/login.css">
+
+    <title>Viver Feliz - Login Interno</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="../assets/img/logoTransparente.png" alt="Logo da ONG Viver Feliz" class="logo-img">
+            </div>
+            <div class="logo-text">
+                <h1>Viver Feliz</h1>
+                <span>ONG de Ajuda Social</span>
+            </div>
+        </div>
+        <a class="admin-btn" href="index.html">Voltar ao Site</a>
+    </header>
+
+    <div class="container-login">
+        <main class="estrutura">
+            <form id="formLogin">
+                <h1>Login</h1>
+                <p>Entre com e-mail e senha para acessar o sistema interno.</p>
+
+                <div class="caixaInput">
+                    <input name="email" id="email" placeholder="E-mail" type="email" required>
+                    <i class="bx bxs-user"></i>
+                </div>
+
+                <div class="caixaInput">
+                    <input name="senha" id="senha" placeholder="Senha" type="password" required>
+                    <i class="bx bx-show" id="toggleSenha"></i>
+                </div>
+
+                <button type="submit" class="btn-login">Acessar Sistema</button>
+
+                <div class="opcoesLogin">
+                    <label class="lembrar">
+                        <input type="checkbox" id="lembrar"> Lembrar minha senha
+                    </label>
+                </div>
+
+                <a href="recuperar.html" class="esqueci-senha">Esqueci minha senha</a>
+
+            </form>
+        </main>
+    </div>
+
+    <script src="../js/utils/mensagem.js"></script>
+    <script src="../js/login.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios - Viver Feliz</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Relatórios</h1>
+
+     <a href="dashboard.html" class="botao-voltar">
+      <i data-lucide="chevron-left"></i> 
+      <span>Voltar ao painel</span>
+    </a>
+
+    <div class="bloco-relatorios">
+      <h2>Anotações e Relatórios</h2>
+      <p class="subtitulo-relatorio">
+        Registre observações, pendências, necessidades das famílias e qualquer informação importante.
+      </p>
+
+      <div class="form-anotacao">
+        <input type="hidden" id="idAnotacaoEditando">
+
+        <label for="tituloAnotacao">Título</label>
+        <input type="text" id="tituloAnotacao" placeholder="Digite o título da anotação">
+
+        <label for="textoAnotacao">Anotação</label>
+        <textarea id="textoAnotacao" placeholder="Digite sua anotação aqui..."></textarea>
+
+        <div class="botoes-form-anotacao">
+          <button type="button" class="botao" onclick="salvarAnotacao()">Salvar anotação</button>
+          <button type="button" class="btn-cancelar-edicao" onclick="cancelarEdicao()" id="btnCancelarEdicao" style="display: none;">
+            Cancelar edição
+          </button>
+        </div>
+      </div>
+
+      <div id="listaAnotacoes" class="lista-anotacoes"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="../js/relatorios.js"></script>
+</body>
+</html>

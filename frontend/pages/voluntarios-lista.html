@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voluntários - Viver Feliz</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Lista de Voluntários</h1>
+
+    <a href="dashboard.html" class="botao-voltar">
+      <i data-lucide="arrow-left"></i> Voltar ao painel
+    </a>
+
+    
+
+    <div class="input-busca">
+      <i data-lucide="search"></i>
+      <input type="text" id="buscaVoluntario" placeholder="Buscar por nome ou função" onkeyup="buscarVoluntario()">
+    </div>
+    
+    <div id="lista">
+      </div>
+
+
+  <nav class="menu-inferior">
+    <a href="dashboard.html" class="item">
+      <i data-lucide="home"></i>
+      <p>Início</p>
+    </a>
+    <a href="familias-lista.html" class="item">
+      <i data-lucide="users"></i>
+      <p>Famílias</p>
+    </a>
+    <a href="doacoes-lista.html" class="item">
+      <i data-lucide="package"></i>
+      <p>Doações</p>
+    </a>
+    <a href="voluntarios-lista.html" class="item ativo">
+      <i data-lucide="heart-handshake"></i>
+      <p>Voluntários</p>
+    </a>
+    <a href="estoque.html" class="item">
+      <i data-lucide="layout-grid"></i>
+      <p>Estoque</p>
+    </a>
+    <a href="entregas.html" class="item">
+      <i data-lucide="truck"></i>
+      <p>Entregas</p>
+    </a>
+  </nav>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="../js/voluntarios-lista.js"></script>
+</body>
+
+</html>

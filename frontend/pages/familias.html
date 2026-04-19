@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Famílias - Viver Feliz</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Cadastrar Famílias</h1>
+
+    <a href="dashboard.html" class="botao-voltar">
+      <i data-lucide="chevron-left"></i> 
+      <span>Voltar ao painel</span>
+    </a>
+
+    <br><br>
+
+      <button class="botao" onclick="mostrarFormulario()">
+      <i data-lucide="plus-circle"></i> Cadastrar nova Família
+    </button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Nascimento</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>Bairro</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="listaFamilias"></tbody>
+    </table>
+
+    <div id="formulario">
+
+      <h2>Ficha de Inscrição</h2>
+
+      <form id="formFamilia">
+
+        <h3>Identificação</h3>
+
+        <label>Nome Completo</label>
+        <input type="text" id="nome">
+
+        <label>Data de Nascimento</label>
+        <input type="date" class="campo-data" id="nascimento">
+
+        <br>
+
+        <label>Rua / Avenida</label>
+        <input type="text" id="rua">
+
+        <label>Número</label>
+        <input type="text" id="numero">
+
+        <label>Bairro</label>
+        <input type="text" id="bairro">
+
+        <label>Cidade</label>
+        <input type="text" id="cidade">
+
+        <label>Estado</label>
+        <input type="text" id="estado">
+
+        <label>CEP</label>
+        <input type="text" id="cep">
+
+        <label>Telefone</label>
+        <input type="text" id="telefone" placeholder="(00) 00000-0000">
+
+        <label>Email</label>
+        <input type="email" id="email">
+
+        <label>CPF</label>
+        <input type="text" id="cpf" placeholder="000.000.000-00">
+
+        <label>RG</label>
+        <input type="text" id="rg">
+
+        <label>Quantos moram na residência?</label>
+        <input type="number" id="moram" class="campo-numero" value="0">
+
+        <br>
+
+        <label>Casa própria ou alugada?</label>
+        <input type="text" id="casa">
+
+        <label>Quantos trabalham na casa?</label>
+        <input type="number" id="trabalham" class="campo-numero" value="0">
+
+        <br>
+
+        <label>Recebe benefícios?</label>
+        <input type="text" id="beneficios">
+
+        <label>Faz tratamento médico?</label>
+        <input type="text" id="tratamento">
+
+        <br>
+
+        <h3>Membros da Família</h3>
+
+        <button type="button" class="botao" onclick="adicionarMembro()">+ Adicionar mais membros</button><br><br>
+
+        <div class="grupo-membros">
+
+          <div class="membro-item">
+            <label>Genitor</label>
+            <input type="text" id="genitor">
+
+            <label>Genitora</label>
+            <input type="text" id="genitora">
+          </div>
+
+          <div id="membrosFamilia">
+            <div class="membro-item">
+              <label>Nome do Dependente</label>
+              <input type="text" name="dependenteNome[]">
+
+              <label>Idade</label>
+              <input type="number" name="dependenteIdade[]">
+
+              <label>Parentesco</label>
+              <input type="text" name="dependenteParentesco[]">
+            </div>
+          </div>
+
+        </div>
+
+        <h3>Cadastro realizado por</h3>
+
+        <label>Voluntário (Nome Completo)</label>
+        <input type="text" id="voluntario">
+
+        <button type="submit" class="botao">Salvar</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <nav class="menu-inferior">
+    <a href="dashboard.html" class="item">
+      <i data-lucide="home"></i>
+      <p>Início</p>
+    </a>
+    <a href="familias-lista.html" class="item">
+      <i data-lucide="users"></i>
+      <p>Famílias</p>
+    </a>
+    <a href="familias.html" class="item ativo">
+      <i data-lucide="user-plus"></i>
+      <p>Gerenciar</p>
+    </a>
+    <a href="doacoes-lista.html" class="item">
+      <i data-lucide="package"></i>
+      <p>Doações</p>
+    </a>
+    <a href="voluntarios-lista.html" class="item">
+      <i data-lucide="heart-handshake"></i>
+      <p>Voluntários</p>
+    </a>
+    <a href="estoque.html" class="item">
+      <i data-lucide="layout-grid"></i>
+      <p>Estoque</p>
+    </a>
+  </nav>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons(); // Ativa os ícones da Lucide (Seta e Menu)
+  </script>
+  <script src="../js/utils/mensagem.js"></script>
+  <script src="../js/utils/cep.js"></script>
+  <script src="../js/familias.js"></script>
+
+</body>
+</html>

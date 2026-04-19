@@ -1,0 +1,1452 @@
+/* ============================================================
+   CONFIGURAÇÕES GERAIS E LAYOUT (TOPO)
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  padding-bottom: 0; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Marca d'água no fundo da página */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 800px;
+    height: 80vh;
+    background-image: url("../assets/img/logobackgr.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.03;
+    pointer-events: none; 
+    z-index: -1; 
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Garante que o conteúdo fique na frente do fundo */
+.container, .topo, .cards, .card, .admin-card, .menu-inferior, .detalhes-categoria, .form-entrega {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  padding-bottom: 120px;
+}
+
+/* topo */
+.topo {
+  background: linear-gradient(90deg, #ffb300, #ff7b00);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Container principal da logo (Ícone + Textos) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+  
+  /* Espaço entre a imagem redonda e os textos */
+}
+
+/* O círculo da logo */
+.icone {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Impede que o círculo amasse em telas menores */
+}
+
+.icone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Novo bloco para agrupar os textos e controlar a distância */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Título 'Viver Feliz' */
+.logo-text h1 {
+  margin: 0;
+  padding: 0;
+  color: white;
+  line-height: 1.1; /* Reduz o espaço interno da linha */
+  font-size: 22px;
+}
+
+/* Subtítulo 'Sistema Administrativo' */
+.subtitulo {
+  color: white; /* Texto Branco */
+  margin-top: -4px; 
+  font-size: 13px;
+  opacity: 0.9; /* Deixa um branco levemente mais suave que o título */
+}
+
+
+
+
+/*                                       */
+.sair {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.sair svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* título */
+.titulo {
+  text-align: center;
+  margin-top: 40px;
+}
+/*  modifica a cor na parte 'Gerencie famílias, doações e voluntários da ONG'
+/* em baixo da logo */
+.titulo h1 {
+  font-size: 36px;
+  color: #1e2a3a;
+}
+
+.titulo p {
+  color: #555;
+  font-size: 18px;
+}
+
+.titulo span {
+  color: #ff7b00;
+  font-weight: bold;
+}
+
+.impacto {
+  text-align: center;
+}
+
+/* cards do inicio */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  width: 220px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border: 1px solid #ff7b00;
+}
+
+.card.ativo {
+  border: 2px solid #ff7b00;
+}
+
+.icone-card {
+  background: #ffe7c6;
+  color: #ff7b00;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 22px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 40px;
+  margin: 10px 0;
+  color: #1e2a3a;
+}
+
+/* MENU INFERIOR - VERSÃO FINALIZADA */
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #0f172a !important; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5px; 
+  z-index: 99999;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.item {
+  text-decoration: none;
+  color: #94a3b8; 
+  text-align: center;
+  font-size: 10px; 
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  flex: 1; 
+}
+
+/* ESTADO ATIVO: Texto e Ícone ficam laranjas */
+.item.ativo {
+  color: #ffb300 !important; 
+}
+
+/* Garante que o ícone (SVG da Lucide) mude de cor no estado ativo */
+.item.ativo svg {
+  stroke: #ffb300 !important;
+}
+
+/* AJUSTE DOS ÍCONES LUCIDE */
+.item svg {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 4px;
+  stroke: #94a3b8; /* Cor padrão do ícone (cinza) */
+  transition: 0.3s;
+  stroke-width: 2; /* Deixa o ícone um pouco mais visível */
+}
+
+/* Remove margens padrão do parágrafo dentro do item */
+.item p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+    RODAPÉ 
+   ============================================================ */
+
+footer, .footer-site {
+    background-color: #0f172a !important; /* Azul escuro profundo */
+    color: #94a3b8 !important; /* Letras azul claro */
+    padding: 60px 10% 120px !important;
+    width: 100% !important;
+    border-top: none !important; 
+    box-shadow: none !important; 
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Garante que a seção acima não jogue borda no footer */
+main, section, .dashboard-container {
+    border-bottom: none !important;
+}
+
+.footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 colunas no Desktop */
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.footer-col h4 {
+    color: #ffb300 !important; /* Títulos em Amarelo/Laranja */
+    margin-bottom: 20px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.footer-col p, .social-item span {
+    color: #94a3b8 !important; 
+    font-size: 15px !important;
+}
+
+/* Efeito no Instagram */
+.social-item {
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important; 
+    transition: all 0.3s ease !important;
+}
+
+.social-item i {
+    font-size: 20px !important; 
+    color: #ffb300 !important;
+    transition: 0.3s ease !important;
+}
+
+.social-item:hover {
+    transform: translateX(8px) rotate(-3deg) !important;
+}
+
+/* Efeito de brilho ao passar o mouse */
+.social-item:hover i, 
+.social-item:hover span {
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
+}
+
+.copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+    text-align: center !important;
+}
+
+.footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 colunas no Desktop */
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.footer-col h4 {
+    color: #ffb300 !important; /* Títulos em Amarelo/Laranja */
+    margin-bottom: 20px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.footer-col p, .social-item span {
+    color: #94a3b8 !important; 
+    font-size: 15px !important;
+}
+
+/* Efeito no Instagram */
+.social-item {
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important; 
+    transition: all 0.3s ease !important;
+}
+
+.social-item i {
+    font-size: 20px !important; 
+    color: #ffb300 !important;
+    transition: 0.3s ease !important;
+}
+
+.social-item:hover {
+    transform: translateX(8px) rotate(-3deg) !important;
+}
+
+/* Efeito de brilho ao passar o mouse */
+.social-item:hover i, 
+.social-item:hover span {
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) !important;
+}
+
+.copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+    text-align: center !important;
+}
+
+/* 2. AJUSTE RESPONSIVO  */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr !important; /* Empilha as colunas */
+        text-align: left !important; /* Alinha o texto à esquerda */
+        gap: 30px !important;
+    }
+
+    /* Força os ícones e textos a grudarem na esquerda */
+    .footer-col p, 
+    .social-item,
+    .social-links {
+        justify-content: flex-start !important; 
+        align-items: flex-start !important;
+    }
+
+    /* Dá um espaço lateral para não colar na borda da tela */
+    footer, .footer-site {
+        padding: 40px 10% 150px !important; 
+    }
+}
+
+
+/*=========================================================== */
+
+/* área admin */
+.admin {
+  margin-top: 80px;
+  padding: 40px;
+  text-align: center;
+}
+
+.admin-card {
+  background: white;
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.admin-card button {
+  margin-top: 15px;
+  background: #ff7b00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.admin-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  background: #e56d00;
+}
+
+.admin-card button:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+    SISTEMA DE BOTÕES (ORGANIZADO)
+   ============================================================ */
+
+/* Botões de Ação Sólidos (Geral) */
+.botao, .salvar, .excluir, .admin-card button {
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    transition: 0.3s ease !important;
+    color: white !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+.botao { background: #ff7b00 !important; margin-top: 10px; }
+.salvar { background: #10b981 !important; padding: 6px 12px !important; }
+.excluir { background: #ef4444 !important; padding: 6px 12px !important; }
+
+/* Botão Editar (Neutro/Cinza) */
+.editar {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: 0.3s !important;
+}
+
+/* --- O BOTÃO VOLTAR--- */
+.botao-voltar {
+    background: transparent !important; /* SEM FUNDO LARANJA */
+    color: #ff7b00 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border: none !important;
+    padding: 8px 0 !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    margin-bottom: 20px !important;
+    transition: 0.3s ease !important;
+}
+
+/* Efeitos de Hover */
+.botao:hover { background: #e56d00 !important; }
+.salvar:hover { background: #059669 !important; }
+.excluir:hover { background: #dc2626 !important; }
+.editar:hover { background: #e2e8f0 !important; }
+.botao-voltar:hover { 
+    color: #ea580c !important; 
+    transform: translateX(-5px) !important; 
+}
+
+/* ============================================================
+   TABELAS E FORMULÁRIO (VERSÃO REFATORADA)
+   ============================================================ */
+
+table {
+  width: 100%;
+  border-collapse: separate; /* ESSENCIAL para arredondar bordas */
+  border-spacing: 0 8px;    /* Cria o efeito de "cards" entre as linhas */
+  margin-top: 20px;
+  background: transparent;  /* Fundo transparente para os cards brancos aparecerem */
+}
+
+th {
+  background-color: #f1f5f9; /* Cinza moderno e leve */
+  color: #475569;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 15px;
+  text-align: center;
+  border: none;
+}
+
+/* Arredonda as pontas do cabeçalho */
+th:first-child { border-radius: 10px 0 0 10px; }
+th:last-child { border-radius: 0 10px 10px 0; }
+
+td {
+  background: white; /* Cada linha vira um card branco */
+  padding: 15px;
+  color: #1e2a3b;
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Arredonda as pontas das linhas de dados */
+td:first-child { 
+  border-left: 1px solid #f1f5f9;
+  border-radius: 10px 0 0 10px; 
+}
+td:last-child { 
+  border-right: 1px solid #f1f5f9;
+  border-radius: 0 10px 10px 0; 
+}
+
+/* Efeito de destaque ao passar o mouse */
+tr:hover td {
+  background-color: #fff7ef; 
+  cursor: pointer;
+}
+
+/* --- ESTILO DOS CAMPOS DO FORMULÁRIO --- */
+#formulario {
+  display: none;
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #ff7b00;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 123, 0, 0.1);
+}
+
+.linha-editando {
+  background-color: #ffe0b2 !important;
+}
+
+/* ============================================================
+    SISTEMA DE BUSCA
+   ============================================================ */
+
+/* Container que agrupa a lupa e o input */
+.input-busca {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Aumentei um pouco para melhor usabilidade */
+    margin: 30px auto; 
+    z-index: 5;
+}
+
+/* Posiciona a lupa DENTRO do campo */
+.input-busca i, .input-busca svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    width: 20px;
+    height: 20px;
+    pointer-events: none; /* Garante que o clique passe para o input */
+}
+
+/* Estilo unificado para os inputs de busca */
+#buscaFamilia, #buscaDoacao, #buscaVoluntario {
+    width: 100% !important;
+    padding: 14px 15px 14px 45px !important; /* O padding de 45px abre espaço para a lupa */
+    border: 1.5px solid #ff7b00 !important;
+    border-radius: 12px !important;
+    font-size: 15px !important;
+    background: white !important;
+    transition: 0.3s ease !important;
+    margin: 0 !important;
+    display: block !important;
+}
+/* Mensagem de "Nenhum resultado" centralizada abaixo da busca */
+#lista p, .sem-dados {
+    text-align: center;
+    width: 100%;
+    margin-top: 25px;
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 500;
+    grid-column: 1 / -1; /* Garante que ocupe a largura toda se usar grid */
+}
+
+#buscaFamilia:focus, #buscaDoacao:focus, #buscaVoluntario:focus {
+    border-color: #ff7b00 !important;
+    box-shadow: 0 0 0 4px rgba(255, 123, 0, 0.1) !important;
+    outline: none !important;
+}
+/* filtros */
+.botao-filtro {
+  background: #f1f3f5;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.botao-filtro:hover {
+  background: #dfe6ec;
+}
+
+.botao-filtro.ativo {
+  background: #ff7b00;
+  color: white;
+}
+
+.botao-filtro.ativo:hover {
+  background: #e56d00;
+  color: white;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.filtros select {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+}
+
+.campo-numero {
+  width: 80px;
+  display: inline-block;
+}
+
+/* cards de listas */
+.card-familia,
+.card-doacao,
+.card-voluntario {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-familia:hover,
+.card-doacao:hover,
+.card-voluntario:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #fff7ef;
+}
+
+.card-doacao:active,
+.card-voluntario:active {
+  transform: scale(0.98);
+}
+
+.sem-dados,
+.sem-anotacoes {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  font-style: 500;
+}
+
+/* detalhes */
+.detalhes-familia,
+.detalhes-doacao,
+.detalhes-voluntario {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.detalhes-familia h2,
+.detalhes-familia h3,
+.detalhes-doacao h2,
+.detalhes-voluntario h2 {
+  color: #ff7b00;
+  margin-top: 0;
+}
+
+.detalhes-familia p {
+  margin: 8px 0;
+}
+
+/* membros da família */
+.grupo-membros {
+  background: #fff7ef;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.membro-item {
+  background: transparent;
+  padding: 10px 0;
+  border: none;
+  margin-bottom: 0;
+}
+
+#membrosFamilia .membro-item {
+  border-top: 1px solid #ffd2a6;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.membro-item label {
+  display: block;
+  margin-top: 8px;
+}
+
+.membro-detalhe {
+  background: #fff7ef;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ffd2a6;
+}
+
+/* estoque */
+.bloco-estoque {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bloco-estoque h2 {
+  color: #ff7b00;
+  margin-top: 0;
+}
+
+.card-estoque {
+  background: #fff7ef;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ffd2a6;
+}
+
+.categorias-estoque {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  padding-bottom: 100px;
+}
+
+.card-categoria {
+  background: white;
+  width: 220px;
+  min-height: 220px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.card-categoria:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  background: #fff7ef;
+  border: 1px solid #ff7b00;
+}
+
+.card-categoria h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ff7b00;
+}
+
+.card-categoria p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1e2a3a;
+  margin: 0;
+}
+
+.detalhes-categoria {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding-bottom: 100px;
+}
+
+.detalhes-categoria h2 {
+  margin-top: 0;
+  color: #ff7b00;
+}
+
+.item-detalhado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.item-detalhado span {
+  font-size: 16px;
+}
+
+.item-detalhado strong {
+  font-size: 18px;
+  color: #1e2a3a;
+}
+
+.botao-entregar {
+  background: #ff7b00;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.botao-entregar:hover {
+  background: #e66d00;
+}
+
+/* tabela de itens em estoque */
+.titulo-tabela-estoque {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 20px;
+}
+
+.tabela-responsiva {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabela-estoque-itens {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tabela-estoque-itens th,
+.tabela-estoque-itens td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tabela-estoque-itens th {
+  background-color: #f4f6f8;
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tabela-estoque-itens td {
+  color: #444;
+}
+
+.tabela-estoque-itens tr:hover {
+  background-color: #f9f9f9;
+}
+
+.tabela-estoque-itens td:nth-child(2),
+.tabela-estoque-itens th:nth-child(2) {
+  text-align: center;
+  width: 140px;
+}
+
+.tabela-estoque-itens td:nth-child(3),
+.tabela-estoque-itens th:nth-child(3) {
+  text-align: center;
+  width: 160px;
+}
+
+.btn-entregar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn-entregar:hover {
+  opacity: 0.9;
+}
+
+.sem-itens-tabela {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* form entrega */
+.form-entrega {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-entrega h2 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.grupo-form {
+  margin-bottom: 15px;
+}
+
+.grupo-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+.grupo-form input,
+.grupo-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.grupo-form input:focus,
+.grupo-form select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+/* Container dos botões */
+.acoes-form-entrega {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important; /* Distribui o espaço entre eles */
+  gap: 15px !important;
+  margin: 25px 0 0 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Regra mestre para AMBOS os botões serem iguais */
+.acoes-form-entrega button {
+  flex: 1 1 0% !important; /* Força divisão exata de 50% para cada */
+  width: 0 !important;      /* Impede que o conteúdo interno empurre a largura */
+  
+  /* Reset de estilos para garantir igualdade */
+  margin: 0 !important;
+  padding: 14px 5px !important; 
+  height: 50px !important;   /* Força a mesma altura vertical */
+  
+  border: none !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  color: white !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+/* Cores específicas sem interferir no tamanho */
+.acoes-form-entrega button:first-child, 
+.btn-confirmar-entrega {
+  background-color: #4CAF50 !important;
+}
+
+.btn-cancelar-entrega {
+  background-color: #d9534f !important;
+}
+
+/* Efeito hover para os dois */
+.acoes-form-entrega button:hover {
+  filter: brightness(0.9);
+  transition: 0.2s;
+}
+
+/* relatórios */
+.bloco-relatorios {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+}
+
+.subtitulo-relatorio {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.form-anotacao {
+  background-color: #fdfdfd;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.form-anotacao label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-anotacao input,
+.form-anotacao textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-anotacao input:focus,
+.form-anotacao textarea:focus {
+  border-color: #4CAF50;
+}
+
+.form-anotacao textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.botoes-form-anotacao {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.botoes-form-anotacao button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.botoes-form-anotacao button:hover {
+  opacity: 0.9;
+}
+
+.botoes-form-anotacao button:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-cancelar-edicao {
+  background-color: #f39c12;
+  color: white;
+}
+
+.lista-anotacoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.card-anotacao {
+  background: #fff8a6;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-break: break-word;
+}
+
+.topo-card-anotacao h3 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 20px;
+}
+
+.texto-card-anotacao {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.info-card-anotacao {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.acoes-card-anotacao {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.acoes-card-anotacao button {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.acoes-card-anotacao button:hover {
+  opacity: 0.9;
+}
+
+.btn-editar-anotacao {
+  background-color: #3498db;
+}
+
+.btn-excluir-anotacao {
+  background-color: #e74c3c;
+}
+
+/* --- ESTILO DO RODAPÉ INSTITUCIONAL --- */
+.footer-site {
+    background-color: #1e293b; /* Azul escuro combinando com o menu */
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 4px solid #ff7b00; /* Linha laranja característica */
+    /* IMPORTANTE: Espaço para o texto não ficar escondido atrás do menu fixo */
+    padding-bottom: 120px; 
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-col h4 {
+    color: #ff7b00;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-col p, .footer-col address p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Cor dos ícones do Lucide dentro do rodapé */
+.footer-col svg {
+    width: 18px;
+    height: 18px;
+    color: #ffb300;
+}
+
+.social-links .social-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.social-links .social-item:hover {
+    color: #ff7b00;
+}
+
+.copy {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+
+
+
+
+
+/* deixar as páginas responsivas */
+@media (max-width: 900px) {
+  .cards,
+  .categorias-estoque {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .card,
+  .card-categoria {
+    width: 100%;
+    max-width: 320px;
+    min-height: auto;
+  }
+
+  .admin {
+    padding: 20px;
+  }
+
+  .admin-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body::before {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    padding-bottom: 120px;
+  }
+
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  .sair {
+    align-self: flex-end;
+  }
+
+  .titulo h1 {
+    font-size: 28px;
+  }
+
+  .titulo p {
+    font-size: 15px;
+  }
+
+  .cards,
+  .categorias-estoque {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card,
+  .card-categoria,
+  .admin-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+
+  .botoes-form-anotacao,
+  .acoes-form-entrega {
+    flex-direction: column;
+  }
+
+  .botoes-form-anotacao button,
+  .acoes-form-entrega button,
+  .botao {
+    width: 100%;
+  }
+
+  body::before {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+    padding-bottom: 120px;
+  }
+
+  .titulo h1 {
+    font-size: 24px;
+  }
+
+  .titulo p {
+    font-size: 14px;
+  }
+
+  .card h3 {
+    font-size: 30px;
+  }
+
+  .card-categoria h2 {
+    font-size: 18px;
+  }
+
+  .card-categoria p {
+    font-size: 20px;
+  }
+
+  .icone {
+    width: 50px;
+    height: 50px;
+  }
+
+  .menu-inferior p {
+    font-size: 11px;
+  }
+
+  .item {
+    font-size: 12px;
+  }
+
+  body::before {
+    width: 250px;
+    height: 250px;
+  }
+  /* Correção específica para a tela de Login */
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10; /* Garante que o login fique na frente de TUDO */
+}
+
+form#formLogin {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    z-index: 11;
+}
+
+/* Garante que as imagens de fundo não bloqueiem o clique nos inputs */
+body::before {
+    pointer-events: none !important;
+}
+}

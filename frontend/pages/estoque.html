@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Itens em Estoque</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Itens em Estoque</h1>
+    
+    <a href="dashboard.html" class="botao-voltar">
+      <i data-lucide="arrow-left"></i> Voltar ao painel
+    </a>
+
+    <div class="categorias-estoque">
+      <div class="card-categoria" onclick="mostrarItensCategoria('Roupas')">
+        <h2><i data-lucide="shirt"></i> Roupas</h2>
+        <p id="totalRoupas">0 itens</p>
+      </div>
+
+      <div class="card-categoria" onclick="mostrarItensCategoria('Alimentos')">
+        <h2><i data-lucide="apple"></i> Alimentos</h2>
+        <p id="totalAlimentos">0 itens</p>
+      </div>
+
+      <div class="card-categoria" onclick="mostrarItensCategoria('Brinquedos')">
+        <h2><i data-lucide="toy-brick"></i> Brinquedos</h2> <p id="totalBrinquedos">0 itens</p>
+      </div>
+
+      <div class="card-categoria" onclick="mostrarItensCategoria('Higiene')">
+        <h2><i data-lucide="droplet"></i> Higiene</h2>
+        <p id="totalHigiene">0 itens</p>
+      </div>
+
+      <div class="card-categoria" onclick="mostrarItensCategoria('Limpeza')">
+        <h2><i data-lucide="brush"></i> Limpeza</h2>
+        <p id="totalLimpeza">0 itens</p>
+      </div>
+
+      <div class="card-categoria" onclick="mostrarItensCategoria('Material Escolar')">
+        <h2><i data-lucide="book-open"></i> Material Escolar</h2>
+        <p id="totalMaterialEscolar">0 itens</p>
+      </div>
+
+      <div class="card-categoria" onclick="mostrarItensCategoria('Utensílios')">
+        <h2><i data-lucide="utensils"></i> Utensílios</h2>
+        <p id="totalUtensilios">0 itens</p>
+      </div>
+    </div>
+
+    <div id="detalhesCategoria" class="detalhes-categoria" style="display:none;">
+      <h2 id="tituloDetalhes">Itens da Categoria</h2>
+      <div id="listaItensCategoria"></div>
+    </div>
+
+    <div id="formEntrega" class="form-entrega" style="display:none;">
+      <h2>Registrar Entrega</h2>
+
+      <div class="grupo-form">
+        <label for="itemEntrega">Item</label>
+        <select id="itemEntrega" onchange="atualizarEstoqueDoItemSelecionado()">
+          <option value="">Selecione um item</option>
+        </select>
+      </div>
+
+      <div class="grupo-form">
+        <label>Categoria</label>
+        <input type="text" id="categoriaEntrega" readonly>
+      </div>
+
+      <div class="grupo-form">
+        <label for="quantidadeEntrega">Quantidade</label>
+        <input type="number" id="quantidadeEntrega" min="1">
+      </div>
+
+      <div class="grupo-form">
+        <label for="familiaEntrega">Família</label>
+        <select id="familiaEntrega">
+          <option value="">Selecione uma família</option>
+        </select>
+      </div>
+
+      <div class="acoes-form-entrega">
+        <button type="button" class="botao" onclick="confirmarEntrega()">Confirmar Entrega</button>
+        <button type="button" class="btn-cancelar-entrega" onclick="cancelarEntrega()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="menu-inferior">
+    <a href="dashboard.html" class="item">
+      <i data-lucide="home"></i>
+      <p>Início</p>
+    </a>
+    <a href="familias-lista.html" class="item">
+      <i data-lucide="users"></i>
+      <p>Famílias</p>
+    </a>
+    <a href="doacoes-lista.html" class="item">
+      <i data-lucide="package"></i>
+      <p>Doações</p>
+    </a>
+    <a href="voluntarios-lista.html" class="item">
+      <i data-lucide="heart-handshake"></i>
+      <p>Voluntários</p>
+    </a>
+    <a href="estoque.html" class="item ativo">
+      <i data-lucide="layout-grid"></i>
+      <p>Estoque</p>
+    </a>
+    <a href="entregas.html" class="item">
+      <i data-lucide="truck"></i>
+      <p>Entregas</p>
+    </a>
+  </nav>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="../js/utils/mensagem.js"></script>
+  <script src="../js/estoque.js"></script>
+</body>
+</html>

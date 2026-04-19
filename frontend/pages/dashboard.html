@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Painel Administrativo</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+
+
+<body>
+
+
+
+  <header class="topo">
+
+
+
+    <div class="logo">
+
+      <div class="icone">
+
+        <img src="../assets/img/logo.png" alt="Logo Viver Feliz" style="width:100px;">
+
+      </div>
+
+
+    <div class="logo-text">
+            <h1>Viver Feliz</h1>
+            <span class="subtitulo">Sistema Administrativo</span>
+        </div>
+    </div>
+
+    <div class="sair" onclick="logout()">
+        <i data-lucide="log-out"></i>
+        <span>Sair</span>
+    </div>
+</header>
+
+
+
+  <section class="titulo">
+
+
+
+    <h1>Painel Administrativo</h1>
+
+
+
+    <p>
+
+      Gerencie famílias, doações e voluntários da ONG
+
+      <span>Viver Feliz</span>
+
+    </p>
+
+
+
+  </section>
+
+    <section class="impacto">
+  <h2>Nosso Impacto Social</h2>
+  <div class="cards">
+<div class="card" onclick="location.href='familias-lista.html'">
+  <div class="icone-card"><i data-lucide="users"></i></div>
+  <p>Famílias Cadastradas</p>
+  <h3 id="totalFamilias">0</h3>
+  </div>
+
+    <div class="card" onclick="location.href='doacoes-lista.html'">
+      <div class="icone-card"><i data-lucide="package"></i></div>
+      <p>Total de Doações</p>
+      <h3 id="totalDoacoes">0</h3>
+     
+    </div>
+
+    <div class="card" onclick="location.href='voluntarios-lista.html'">
+      <div class="icone-card"><i data-lucide="heart-handshake"></i></div>
+      <p>Voluntários Ativos</p>
+      <h3 id="totalVoluntarios">0</h3>
+   
+    </div>
+
+    <div class="card" onclick="location.href='estoque.html'">
+      <div class="icone-card"><i data-lucide="clipboard-list"></i></div>
+      <h3 id="totalEstoque">0</h3>
+      <span>Disponíveis para doação</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔽 NOVA SEÇÃO ADMIN -->
+<section class="admin">
+
+  <div class="admin-card">
+    <h3>Gerenciar Famílias</h3>
+    <p>Cadastre novas famílias e acompanhe quem recebe ajuda.</p>
+    <a href="familias.html"><button>Acessar</button></a>
+  </div>
+
+  <div class="admin-card">
+    <h3>Gerenciar Doações</h3>
+    <p>Registre e organize as doações recebidas.</p>
+    <a href="doacoes.html"><button>Acessar</button></a>
+  </div>
+
+  <div class="admin-card">
+    <h3>Gerenciar Voluntários</h3>
+    <p>Cadastre e organize os voluntários da ONG.</p>
+    <a href="voluntarios.html"><button>Acessar</button></a>
+  </div>
+
+  <div class="admin-card">
+    <h3>Gerenciar Relatórios</h3>
+    <p>Registre observações e pendências.</p>
+    <a href="relatorios.html"><button>Acessar</button></a>
+  </div>
+
+</section>
+
+<footer class="footer-site">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Viver Feliz</h4>
+            <p>Promovendo solidariedade e apoio às famílias que mais precisam.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <div class="contato-info">
+                <p><i class="fa-solid fa-phone"></i> (81) 9529-2745</p>
+                <p><i class="fa-solid fa-envelope"></i> projetosocialviverfeliz@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> R. Canadá, Nº 30 - Ibura, Recife-PE</p>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <div class="social-links">
+                <a href="https://instagram.com/ong_viver.feliz" target="_blank" rel="noopener" class="social-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@ong_viver.feliz</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="copy">
+        <p>&copy; 2026 ONG Viver Feliz — Todos os direitos reservados</p>
+    </div>
+
+
+<nav class="menu-inferior">
+    <a href="dashboard.html" class="item ativo">
+      <i data-lucide="home"></i>
+      <p>Início</p>
+    </a>
+    <a href="familias-lista.html" class="item">
+      <i data-lucide="users"></i>
+      <p>Famílias</p>
+    </a>
+    <a href="doacoes-lista.html" class="item">
+      <i data-lucide="package"></i>
+      <p>Doações</p>
+    </a>
+    <a href="voluntarios-lista.html" class="item">
+      <i data-lucide="heart-handshake"></i>
+      <p>Voluntários</p>
+    </a>
+    <a href="estoque.html" class="item">
+      <i data-lucide="layout-grid"></i>
+      <p>Estoque</p>
+    </a>
+    <a href="entregas.html" class="item">
+      <i data-lucide="truck"></i>
+      <p>Entregas</p>
+    </a>
+  </nav>
+
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

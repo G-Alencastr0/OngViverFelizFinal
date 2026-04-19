@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <div class="container-login">
+        <main class="estrutura">
+            <h1>Recuperar Senha</h1>
+            <p>Digite seu e-mail para recuperar sua conta</p>
+
+            <div class="caixaInput">
+                <input type="email" id="emailRecuperacao" placeholder="Digite seu e-mail" required>
+            </div>
+
+            <button onclick="recuperar()" class="btn-login">Enviar</button>
+
+            <p id="mensagem" style="margin-top: 15px; text-align: center; font-size: 0.9rem;"></p>
+
+            <div class="opcoesLogin" style="margin-top: 20px;">
+                <a href="login.html" style="color: #ff8c00; text-decoration: none; font-size: 14px;">Voltar ao login</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function recuperar() {
+            const email = document.getElementById("emailRecuperacao").value;
+            const mensagem = document.getElementById("mensagem");
+
+            if (!email) {
+                mensagem.innerText = "Digite um e-mail!";
+                mensagem.style.color = "red";
+                return;
+            }
+
+            mensagem.innerText = "Se o email existir, enviaremos instruções.";
+            mensagem.style.color = "green";
+        }
+    </script>
+
+</body>
+</html>
